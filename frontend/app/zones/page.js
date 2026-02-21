@@ -110,11 +110,23 @@ export default function ZonesPage() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-center py-20"
+              className="text-center py-20 border border-white/10 bg-background-paper"
             >
               <Gamepad2 className="w-16 h-16 text-muted-foreground mx-auto mb-6" />
               <h3 className="font-orbitron font-bold text-2xl mb-2">No Zones Found</h3>
-              <p className="text-muted-foreground">Try adjusting your search or filters</p>
+              <p className="text-muted-foreground mb-6">
+                {searchTerm || selectedCity !== 'all' 
+                  ? 'Try adjusting your search or filters'
+                  : 'The database needs to be initialized with sample data'}
+              </p>
+              {!searchTerm && selectedCity === 'all' && (
+                <Link
+                  href="/seed"
+                  className="btn-skew inline-flex items-center gap-2 px-8 py-4 bg-primary text-black font-orbitron font-bold uppercase tracking-widest hover:shadow-neon transition-all"
+                >
+                  <span>Initialize Database</span>
+                </Link>
+              )}
             </motion.div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
