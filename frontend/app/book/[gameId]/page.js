@@ -507,3 +507,11 @@ function BookingContent() {
     </div>
   );
 }
+
+export default function BookingPage() {
+  return (
+    <Suspense fallback={<LoadingScreen message="Loading Booking..." />}>
+      <BookingContent />
+    </Suspense>
+  );
+}
