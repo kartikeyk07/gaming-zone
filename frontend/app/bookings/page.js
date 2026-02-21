@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { 
@@ -22,7 +22,7 @@ const statusColors = {
   completed: 'text-blue-400 bg-blue-500/20 border-blue-500/30'
 };
 
-export default function BookingsPage() {
+function BookingsContent() {
   const { user, loading: authLoading } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
