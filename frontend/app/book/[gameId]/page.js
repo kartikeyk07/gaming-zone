@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useParams, useSearchParams, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { 
@@ -22,7 +22,7 @@ const timeSlots = [
   '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'
 ];
 
-export default function BookingPage() {
+function BookingContent() {
   const params = useParams();
   const searchParams = useSearchParams();
   const router = useRouter();
